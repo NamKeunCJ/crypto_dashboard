@@ -17,8 +17,15 @@ def get_top_symbols(limit=LIMIT, min_volume=MIN_VOLUME):
     Filtra solo pares con USDT, volumen alto y con histórico suficiente.
     """
     url = "https://fapi.binance.com/fapi/v1/ticker/24hr"
-    data = requests.get(url).json()
-    df = pd.DataFrame([data])
+    dresponse = requests.get(url, timeout=10)
+    data = response.json()
+    
+    # validar respuesta de la API
+    if not isinstance(data, list):
+        print("Binance API error:", data)
+        return []
+    
+    df = pd.DataFrame(data)
 
     # Conversión de tipos
     df["priceChangePercent"] = df["priceChangePercent"].astype(float)
