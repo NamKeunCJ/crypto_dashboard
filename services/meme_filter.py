@@ -17,7 +17,7 @@ def get_top_symbols(limit=LIMIT, min_volume=MIN_VOLUME):
     Filtra solo pares con USDT, volumen alto y con histórico suficiente.
     """
     url = "https://fapi.binance.com/fapi/v1/ticker/24hr"
-    dresponse = requests.get(url, timeout=10)
+    response = requests.get(url, timeout=10)
     data = response.json()
     
     # validar respuesta de la API
