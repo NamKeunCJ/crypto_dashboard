@@ -18,7 +18,7 @@ def get_top_symbols(limit=LIMIT, min_volume=MIN_VOLUME):
     """
     url = "https://fapi.binance.com/fapi/v1/ticker/24hr"
     data = requests.get(url).json()
-    df = pd.DataFrame(data)
+    df = pd.DataFrame([data])
 
     # Conversión de tipos
     df["priceChangePercent"] = df["priceChangePercent"].astype(float)
