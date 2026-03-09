@@ -1,0 +1,101 @@
+/* ====== General ====== */
+body {
+    background-color: #000 !important;
+    color: #fff !important;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ====== Tabs ====== */
+.tab {
+    background-color: #111 !important;
+    color: #ccc !important;
+    border: none !important;
+}
+.tab--selected {
+    background-color: #222 !important;
+    color: #fff !important;
+    font-weight: bold;
+    border-bottom: 2px solid #00c3ff !important;
+}
+
+/* ====== Tabla ====== */
+.dash-table-container .dash-spreadsheet-container {
+    background-color: #000 !important;
+}
+.dash-table-container .dash-spreadsheet td {
+    border-color: #333 !important;
+}
+.dash-table-container .dash-spreadsheet th {
+    background-color: #111 !important;
+    color: #fff !important;
+}
+.dash-table-container .dash-spreadsheet td:hover {
+    background-color: #222 !important;
+}
+
+/* Filas alternadas */
+.dash-table-container .dash-spreadsheet tr:nth-child(even) td {
+    background-color: #0d0d0d !important;
+}
+.dash-table-container .dash-spreadsheet tr:nth-child(odd) td {
+    background-color: #000 !important;
+}
+
+/* ====== Modal ====== */
+.modal-content {
+    background-color: #111 !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    border: 1px solid #333 !important;
+}
+.modal-header {
+    background-color: #222 !important;
+    border-bottom: 1px solid #444 !important;
+    justify-content: center;
+}
+.modal-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00c3ff;
+}
+.modal-footer {
+    background-color: #111 !important;
+    border-top: 1px solid #444 !important;
+}
+.modal-xl {
+    max-width: 95% !important; /* ancho máximo */
+}
+.modal-content {
+    height: 90vh; /* 90% de la altura de la ventana */
+}
+
+/* Botón cerrar */
+button#close-modal {
+    background-color: #ff4d4d !important;
+    border: none !important;
+    font-weight: bold;
+}
+button#close-modal:hover {
+    background-color: #cc0000 !important;
+}
+/* ====== Botón en la tabla ====== */
+.dash-table-container .dash-spreadsheet td[data-dash-column="Acción"] {
+    cursor: pointer;
+    background-color: #007bff;   /* Azul tipo Bootstrap */
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.dash-table-container .dash-spreadsheet td[data-dash-column="Acción"]:hover {
+    background-color: #0056b3 !important; /* Azul más oscuro al pasar mouse */
+}
+
+/* Mostrar % en columnas Cambio 24h y EMA Δ */
+.dash-table-container td[data-dash-column="Cambio 24h"]::after,
+.dash-table-container td[data-dash-column="EMA Δ"]::after {
+    content: "%";
+    margin-left: 2px;
+}
