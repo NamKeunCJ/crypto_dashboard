@@ -6,7 +6,7 @@ MIN_VOLUME = 50_000_000
 
 def get_active_symbols():
     """Obtiene lista de símbolos activos en Binance Futures."""
-    url = "https://fapi.binance.com/fapi/v1/exchangeInfo"
+    url = "https://api.binance.com/api/v3/exchangeInfo"
     data = requests.get(url).json()
     activos = [s["symbol"] for s in data["symbols"] if s["status"] == "TRADING"]
     return set(activos)
@@ -16,7 +16,7 @@ def get_top_symbols(limit=LIMIT, min_volume=MIN_VOLUME):
     Obtiene los símbolos más volátiles en 24h con volumen mínimo y que estén activos.
     Filtra solo pares con USDT, volumen alto y con histórico suficiente.
     """
-    url = "https://fapi.binance.com/fapi/v1/ticker/24hr"
+    url = "https://api.binance.com/api/v3/ticker/24hr"
     response = requests.get(url, timeout=10)
     data = response.json()
     
